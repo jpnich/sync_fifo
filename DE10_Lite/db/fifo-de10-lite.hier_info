@@ -1,0 +1,248 @@
+|de10_lite
+CLK => CLK.IN1
+KEY[0] => rst.IN1
+KEY[1] => key_meta.DATAIN
+SW[0] => fifo_write.IN1
+SW[0] => display_data.OUTPUTSELECT
+SW[0] => display_data.OUTPUTSELECT
+SW[0] => display_data.OUTPUTSELECT
+SW[0] => display_data.OUTPUTSELECT
+SW[0] => display_data.OUTPUTSELECT
+SW[0] => display_data.OUTPUTSELECT
+SW[0] => display_data.OUTPUTSELECT
+SW[0] => display_data.OUTPUTSELECT
+SW[1] => fifo_read.IN1
+SW[2] => fifo_input[0].IN1
+SW[3] => fifo_input[1].IN1
+SW[4] => fifo_input[2].IN1
+SW[5] => fifo_input[3].IN1
+SW[6] => fifo_input[4].IN1
+SW[7] => fifo_input[5].IN1
+SW[8] => fifo_input[6].IN1
+SW[9] => fifo_input[7].IN1
+LED[0] << fifo:my_fifo.out
+LED[1] << fifo:my_fifo.out
+LED[2] << fifo:my_fifo.out
+LED[3] << fifo:my_fifo.out
+LED[4] << fifo:my_fifo.out
+LED[5] << fifo:my_fifo.out
+LED[6] << fifo:my_fifo.out
+LED[7] << fifo:my_fifo.out
+LED[8] << fifo:my_fifo.full
+LED[9] << fifo:my_fifo.empty
+HEX0[0] << hex_decoder:h0.segments
+HEX0[1] << hex_decoder:h0.segments
+HEX0[2] << hex_decoder:h0.segments
+HEX0[3] << hex_decoder:h0.segments
+HEX0[4] << hex_decoder:h0.segments
+HEX0[5] << hex_decoder:h0.segments
+HEX0[6] << hex_decoder:h0.segments
+HEX1[0] << hex_decoder:h1.segments
+HEX1[1] << hex_decoder:h1.segments
+HEX1[2] << hex_decoder:h1.segments
+HEX1[3] << hex_decoder:h1.segments
+HEX1[4] << hex_decoder:h1.segments
+HEX1[5] << hex_decoder:h1.segments
+HEX1[6] << hex_decoder:h1.segments
+HEX2[0] << hex_decoder:h2.segments
+HEX2[1] << hex_decoder:h2.segments
+HEX2[2] << hex_decoder:h2.segments
+HEX2[3] << hex_decoder:h2.segments
+HEX2[4] << hex_decoder:h2.segments
+HEX2[5] << hex_decoder:h2.segments
+HEX2[6] << hex_decoder:h2.segments
+HEX3[0] << hex_decoder:h3.segments
+HEX3[1] << hex_decoder:h3.segments
+HEX3[2] << hex_decoder:h3.segments
+HEX3[3] << hex_decoder:h3.segments
+HEX3[4] << hex_decoder:h3.segments
+HEX3[5] << hex_decoder:h3.segments
+HEX3[6] << hex_decoder:h3.segments
+HEX4[0] << hex_decoder:h4.segments
+HEX4[1] << hex_decoder:h4.segments
+HEX4[2] << hex_decoder:h4.segments
+HEX4[3] << hex_decoder:h4.segments
+HEX4[4] << hex_decoder:h4.segments
+HEX4[5] << hex_decoder:h4.segments
+HEX4[6] << hex_decoder:h4.segments
+HEX5[0] << hex_decoder:h5.segments
+HEX5[1] << hex_decoder:h5.segments
+HEX5[2] << hex_decoder:h5.segments
+HEX5[3] << hex_decoder:h5.segments
+HEX5[4] << hex_decoder:h5.segments
+HEX5[5] << hex_decoder:h5.segments
+HEX5[6] << hex_decoder:h5.segments
+
+
+|de10_lite|fifo:my_fifo
+clk => memory.we_a.CLK
+clk => memory.waddr_a[3].CLK
+clk => memory.waddr_a[2].CLK
+clk => memory.waddr_a[1].CLK
+clk => memory.waddr_a[0].CLK
+clk => memory.data_a[7].CLK
+clk => memory.data_a[6].CLK
+clk => memory.data_a[5].CLK
+clk => memory.data_a[4].CLK
+clk => memory.data_a[3].CLK
+clk => memory.data_a[2].CLK
+clk => memory.data_a[1].CLK
+clk => memory.data_a[0].CLK
+clk => out[0]~reg0.CLK
+clk => out[1]~reg0.CLK
+clk => out[2]~reg0.CLK
+clk => out[3]~reg0.CLK
+clk => out[4]~reg0.CLK
+clk => out[5]~reg0.CLK
+clk => out[6]~reg0.CLK
+clk => out[7]~reg0.CLK
+clk => pos[0].CLK
+clk => pos[1].CLK
+clk => pos[2].CLK
+clk => pos[3].CLK
+clk => pos[4].CLK
+clk => rd_ptr[0].CLK
+clk => rd_ptr[1].CLK
+clk => rd_ptr[2].CLK
+clk => rd_ptr[3].CLK
+clk => w_ptr[0].CLK
+clk => w_ptr[1].CLK
+clk => w_ptr[2].CLK
+clk => w_ptr[3].CLK
+clk => memory.CLK0
+rst => out[0]~reg0.ACLR
+rst => out[1]~reg0.ACLR
+rst => out[2]~reg0.ACLR
+rst => out[3]~reg0.ACLR
+rst => out[4]~reg0.ACLR
+rst => out[5]~reg0.ACLR
+rst => out[6]~reg0.ACLR
+rst => out[7]~reg0.ACLR
+rst => pos[0].ACLR
+rst => pos[1].ACLR
+rst => pos[2].ACLR
+rst => pos[3].ACLR
+rst => pos[4].ACLR
+rst => rd_ptr[0].ACLR
+rst => rd_ptr[1].ACLR
+rst => rd_ptr[2].ACLR
+rst => rd_ptr[3].ACLR
+rst => w_ptr[0].ACLR
+rst => w_ptr[1].ACLR
+rst => w_ptr[2].ACLR
+rst => w_ptr[3].ACLR
+rst => comb.IN1
+w_en => always0.IN1
+rd_en => always0.IN1
+in[0] => memory.data_a[0].DATAIN
+in[0] => memory.DATAIN
+in[1] => memory.data_a[1].DATAIN
+in[1] => memory.DATAIN1
+in[2] => memory.data_a[2].DATAIN
+in[2] => memory.DATAIN2
+in[3] => memory.data_a[3].DATAIN
+in[3] => memory.DATAIN3
+in[4] => memory.data_a[4].DATAIN
+in[4] => memory.DATAIN4
+in[5] => memory.data_a[5].DATAIN
+in[5] => memory.DATAIN5
+in[6] => memory.data_a[6].DATAIN
+in[6] => memory.DATAIN6
+in[7] => memory.data_a[7].DATAIN
+in[7] => memory.DATAIN7
+out[0] <= out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[4] <= out[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[5] <= out[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[6] <= out[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[7] <= out[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+full <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+empty <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de10_lite|hex_decoder:h0
+value[0] => Decoder0.IN3
+value[1] => Decoder0.IN2
+value[2] => Decoder0.IN1
+value[3] => Decoder0.IN0
+segments[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+segments[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+segments[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+segments[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+segments[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+segments[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+segments[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de10_lite|hex_decoder:h1
+value[0] => Decoder0.IN3
+value[1] => Decoder0.IN2
+value[2] => Decoder0.IN1
+value[3] => Decoder0.IN0
+segments[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+segments[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+segments[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+segments[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+segments[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+segments[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+segments[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de10_lite|hex_decoder:h2
+value[0] => Decoder0.IN3
+value[1] => Decoder0.IN2
+value[2] => Decoder0.IN1
+value[3] => Decoder0.IN0
+segments[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+segments[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+segments[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+segments[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+segments[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+segments[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+segments[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de10_lite|hex_decoder:h3
+value[0] => Decoder0.IN3
+value[1] => Decoder0.IN2
+value[2] => Decoder0.IN1
+value[3] => Decoder0.IN0
+segments[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+segments[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+segments[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+segments[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+segments[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+segments[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+segments[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de10_lite|hex_decoder:h4
+value[0] => Decoder0.IN3
+value[1] => Decoder0.IN2
+value[2] => Decoder0.IN1
+value[3] => Decoder0.IN0
+segments[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+segments[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+segments[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+segments[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+segments[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+segments[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+segments[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de10_lite|hex_decoder:h5
+value[0] => Decoder0.IN3
+value[1] => Decoder0.IN2
+value[2] => Decoder0.IN1
+value[3] => Decoder0.IN0
+segments[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+segments[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+segments[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+segments[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+segments[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+segments[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+segments[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
