@@ -1,5 +1,5 @@
 module fifo#(
-    parameter DEPTH=16,
+    parameter DEPTH=8,
     parameter WIDTH=$clog2(DEPTH)
 )(
     input wire clk,
@@ -13,11 +13,11 @@ module fifo#(
 );
 
     reg [7:0] memory [0:DEPTH-1];
-    reg [WIDTH:0] w_ptr;        //log2(16)=4
-    reg [WIDTH:0] rd_ptr;
-    reg [WIDTH:0] pos;
+    reg [WIDTH-1:0] w_ptr;        //log2(16)=4
+    reg [WIDTH-1:0] rd_ptr;
+    reg [WIDTH+1:0] pos;
 
-    assign full = (pos == 16);
+    assign full = (pos == DEPTH);
     assign empty = (pos == 0);
 
     always @(posedge clk or posedge rst) begin

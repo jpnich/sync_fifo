@@ -2,8 +2,8 @@
 
 module fifo_tb;
 
-    parameter DEPTH=16;
-    parameter WIDTH=8;
+    parameter DEPTH=8;
+    parameter WIDTH=4;
 
     reg clk;
     reg rst;
@@ -88,8 +88,8 @@ module fifo_tb;
         @(negedge clk);
         w_en = 1;
         in = 16'h00;
-
-        for(int i = 0; i < 16; i++) begin
+        
+        for(int i = 0; i < DEPTH; i++) begin
             @(negedge clk);
             in++;
         end
@@ -110,7 +110,7 @@ module fifo_tb;
         rd_en = 0;
         w_en = 0;
 
-        if(uut.pos == 15)
+        if(uut.pos == DEPTH-1)
             $display("pos is at end");
         else
             $display("Error");
