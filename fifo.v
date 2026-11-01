@@ -1,4 +1,7 @@
-module fifo(
+module fifo#(
+    parameter DEPTH=16,
+    parameter WIDTH=$clog2(DEPTH)
+)(
     input wire clk,
     input wire rst,
     input wire w_en,
@@ -9,10 +12,10 @@ module fifo(
     output wire empty
 );
 
-    reg [7:0] memory [0:15];
-    reg [3:0] w_ptr;        //log2(16)=4
-    reg [3:0] rd_ptr;
-    reg [4:0] pos;
+    reg [7:0] memory [0:DEPTH-1];
+    reg [WIDTH:0] w_ptr;        //log2(16)=4
+    reg [WIDTH:0] rd_ptr;
+    reg [WIDTH:0] pos;
 
     assign full = (pos == 16);
     assign empty = (pos == 0);
@@ -28,11 +31,11 @@ module fifo(
         else begin
             if(w_en && !full) begin
                 memory[w_ptr] <= in;
-                w_ptr <= (w_ptr == 15) ? 0 : w_ptr + 1; //loops otherwise
+                w_ptr <= (w_ptr == DEPTH-1) ? 0 : w_ptr + 1; //loops otherwise
             end
             if(rd_en && !empty) begin
                 out <= memory[rd_ptr];
-                rd_ptr <= (rd_ptr == 15) ? 0 : rd_ptr + 1;
+                rd_ptr <= (rd_ptr == DEPTH-1) ? 0 : rd_ptr + 1;
             end
             case({w_en && !full, rd_en && !empty})         //obv pos won't change if equal
                 2'b10: pos <= pos + 1;                  

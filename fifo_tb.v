@@ -2,6 +2,9 @@
 
 module fifo_tb;
 
+    parameter DEPTH=16;
+    parameter WIDTH=8;
+
     reg clk;
     reg rst;
     reg w_en;
@@ -11,7 +14,9 @@ module fifo_tb;
     wire full;
     wire empty;
 
-    fifo uut(
+    fifo #(
+        .DEPTH(DEPTH)
+    ) uut(
         .clk(clk),
         .rst(rst),
         .w_en(w_en),
