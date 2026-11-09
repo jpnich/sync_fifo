@@ -12,3 +12,6 @@ I designed a very simple Verilog FIFO (which also comes with a C++ reference I m
 
 
 ## Evaluation
+### PPA Observations
+
+### Timing Observations
